@@ -26,8 +26,11 @@ module.exports.updateTask = (req ,res) => {
     const { task } = req.body;
     
     TaskModel.findByIdAndUpdate(id, {task})
-    .then(() => res.send("Updated Succesfully..."))
-        .catch((err) => {
+    .then(() => { 
+        console.log("Task updated Succesfully...");
+        res.send("Updated Succesfully...")
+    
+    }).catch((err) => {
             console.log(err);
             res.send({error:err, msg: "Something went wrong!" });
         
@@ -40,8 +43,11 @@ module.exports.deleteTask = (req ,res) => {
     const { id } = req.params;
     
     TaskModel.findByIdAndDelete(id)
-    .then(() => res.send("Deleted Succesfully..."))
-        .catch((err) => {
+    .then(() => { 
+        console.log("Task deleted Succesfully...");
+        res.send("Deleted Succesfully...")
+    
+    }).catch((err) => {
             console.log(err);
             res.send({error:err, msg: "Something went wrong!" });
         
